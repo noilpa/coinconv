@@ -28,8 +28,13 @@ type client struct {
 	secretKey string
 }
 
-func New(host, secretKey string) (*client, error) {
-	u, err := url.Parse(host)
+func New() (*client, error) {
+	cfg, err := readConfig()
+	if err != nil {
+		return nil, err
+	}
+
+	u, err := url.Parse(cfg.CoinmarketcapHost)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +44,7 @@ func New(host, secretKey string) (*client, error) {
 		},
 		host:      u.Host,
 		scheme:    u.Scheme,
-		secretKey: secretKey,
+		secretKey: cfg.CoinmarketcapSecretKey,
 	}, nil
 }
 
@@ -84,9 +89,8 @@ func (c *client) do(ctx context.Context, method, path string, values url.Values,
 	}
 
 	req.Header = http.Header{
-		secretHeader:      {c.secretKey},
-		"Accept":          {"application/json"},
-		"Accept-Encoding": {"deflate", "gzip"},
+		secretHeader: {c.secretKey},
+		"Accept":     {"application/json"},
 	}
 
 	resp, err := c.c.Do(req)

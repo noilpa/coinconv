@@ -5,14 +5,12 @@ import (
 	"os"
 
 	"coinconv/internal/app"
-	"coinconv/internal/config"
 )
 
 func main() {
-	cfg, err := config.ReadConfig()
+	a, err := app.New()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("failed to create app: %v\n", err)
 	}
-
-	os.Exit(app.New(cfg).Run())
+	os.Exit(a.Run())
 }

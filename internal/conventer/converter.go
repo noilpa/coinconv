@@ -33,12 +33,10 @@ func (c *converter) Convert(ctx context.Context, num float64, from, to string) (
 	// try to find quotes for vice versa
 	if errors.As(err, &coinmarketcap.EmptyDataErr) {
 		listing, err = c.lg.CryptocurrencyQuotesLatest(ctx, to, from)
-		if err != nil {
-			return 0, err
-		}
-
-		if _, exist := listing.Quote[from]; exist {
-			return num * (1 / listing.Quote[from].Price), nil
+		if err == nil {
+			if _, exist := listing.Quote[from]; exist {
+				return num * (1 / listing.Quote[from].Price), nil
+			}
 		}
 	}
 

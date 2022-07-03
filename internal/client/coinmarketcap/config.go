@@ -1,4 +1,4 @@
-package config
+package coinmarketcap
 
 import (
 	"encoding/json"
@@ -15,7 +15,7 @@ type Config struct {
 	CoinmarketcapSecretKey string `json:"coinmarketcap_secret_key"`
 }
 
-func ReadConfig() (Config, error) {
+func readConfig() (Config, error) {
 	configPath := "config.json"
 	f, err := os.Open(configPath)
 	if err != nil {
