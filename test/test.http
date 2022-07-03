@@ -1,0 +1,46 @@
+GET http://sandbox-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=BTC,USD
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
+###
+
+GET http://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BTC
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
+###
+
+GET http://sandbox-api.coinmarketcap.com/v1/exchange/quotes/latest?slug=usd,btc
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
+###
+
+GET http://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?convert=RUB&symbol=BTC
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
+###
+
+GET http://sandbox-api.coinmarketcap.com/v1/exchange/map
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
+###
+
+GET http://sandbox-api.coinmarketcap.com/v1/fiat/map
+Content-Type: application/json
+X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c
+Accept: application/json
+Accept-Encoding: deflate, gzip
+
